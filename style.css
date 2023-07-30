@@ -8,3 +8,54 @@ body, html {
 body {
     background-color: #030f29;
   }
+
+.snow-container {
+    position: fixed;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
+
+.flake-container {
+    position: absolute;
+    top: 0;
+    animation: fall 15s 0s 1 linear forwards;
+    padding: 0 50px;
+}
+
+.flake-container__image {
+    position: absolute;
+    left: 0;
+    transform: rotate(0);
+    animation: rotateFlake 5s 0s infinite linear forwards, moveFlakeFromLeftToRight 2s 0s infinite ease-in-out alternate;
+}
+
+@keyframes fall {
+    from {
+        top: 0
+    }
+    to {
+        top: 100%
+    }
+}
+
+@keyframes rotateFlake {
+    from {
+        transform: rotate(0);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes moveFlakeFromLeftToRight {
+    from {
+        left: 0%;
+    }
+
+    to {
+        left: 100%;
+    }
+}
